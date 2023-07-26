@@ -7,7 +7,7 @@ public class GeradorDeSenha {
 	private String senha;
 	private int tamanhoDaSenha;
 	private boolean numero;
-	private boolean caracter;
+	private boolean caractere;
 	private boolean caracteresEspeciais;
 	private final String CARACTERES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	private final String NUMEROS = "1234567890";
@@ -20,15 +20,15 @@ public class GeradorDeSenha {
 		Random gerador = new Random();
 		String senha = "";
 		String mergeCaracters = "";
-		if (caracter && numero && caracteresEspeciais) {
+		if (caractere && numero && caracteresEspeciais) {
 			mergeCaracters = CARACTERES + NUMEROS + CARACTERESESPECIAIS;
 		}
 		else {
-			if (caracter && numero) {
+			if (caractere && numero) {
 				mergeCaracters = CARACTERES + NUMEROS;
 			}
 			else {
-				if (caracter && caracteresEspeciais) {
+				if (caractere && caracteresEspeciais) {
 					mergeCaracters = CARACTERES + CARACTERESESPECIAIS;
 				}
 				else {
@@ -36,7 +36,7 @@ public class GeradorDeSenha {
 						mergeCaracters = NUMEROS + CARACTERESESPECIAIS;
 					}
 					else {
-						if (caracter) {
+						if (caractere) {
 							mergeCaracters = CARACTERES;
 						}
 						else {
@@ -84,12 +84,12 @@ public class GeradorDeSenha {
 		this.numero = numero;
 	}
 
-	public boolean isCaracter() {
-		return caracter;
+	public boolean isCaractere() {
+		return caractere;
 	}
 
-	public void setCaracter(boolean caracter) {
-		this.caracter = caracter;
+	public void setCaractere(boolean caracter) {
+		this.caractere = caracter;
 	}
 
 	public boolean isCaracteresEspeciais() {
@@ -102,7 +102,7 @@ public class GeradorDeSenha {
 
 	private boolean verificacao() {
 		if (getTamanhoDaSenha() < 1) return false;
-		if (!isNumero() && !isCaracter() && !isCaracteresEspeciais()) return false;
+		if (!isNumero() && !isCaractere() && !isCaracteresEspeciais()) return false;
 		return true;
 	}
 }
